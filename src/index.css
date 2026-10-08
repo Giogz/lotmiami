@@ -1,0 +1,59 @@
+@import "tailwindcss";
+
+@theme {
+  --color-tinta:     #0A1322;
+  --color-tinta-2:   #111E33;
+  --color-tinta-3:   #1B2C47;
+  --color-pizarra:   #4A5A74;
+  --color-humo:      #7C8AA0;
+  --color-linea:     #E1E6ED;
+  --color-linea-2:   #CDD5E0;
+  --color-nieve:     #F4F6F9;
+  --color-papel:     #FFFFFF;
+  --color-laton:     #A8853A;
+  --color-laton-cl:  #C9A961;
+
+  --font-display: "Source Serif 4", Georgia, serif;
+  --font-sans:    "Inter", -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+html { scroll-behavior: smooth; }
+body {
+  background: var(--color-papel);
+  color: var(--color-tinta);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+:where(a, button, input, textarea, select, [tabindex]):focus-visible {
+  outline: 2px solid var(--color-laton);
+  outline-offset: 3px;
+}
+
+/* Versalitas de etiqueta: el recurso tipográfico que distingue un
+   documento institucional de una landing comercial. */
+.rotulo {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+/* Filete superior sobre los títulos de sección */
+.filete::before {
+  content: "";
+  display: block;
+  width: 48px;
+  height: 2px;
+  background: var(--color-laton);
+  margin-bottom: 22px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    transition-duration: .01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
